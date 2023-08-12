@@ -38,14 +38,6 @@ app.post("/api/todo", (req, res) => {
   res.send(composeTodoListItem(todo));
 });
 
-app.get("/api/todo", (_, res) => {
-  let todosHTML = "";
-  for (const todo of todos) {
-    todosHTML += composeTodoListItem(todo);
-  }
-  res.send(todosHTML);
-});
-
 app.delete("/api/todo/:id", (req, res) => {
   const index = todos.findIndex((todo) => todo.id === req.params.id);
 
