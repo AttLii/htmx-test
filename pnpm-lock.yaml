@@ -19,6 +19,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.4.10
     version: 20.4.10
+  '@vercel/ncc':
+    specifier: ^0.36.1
+    version: 0.36.1
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -146,6 +149,11 @@ packages:
 
   /@types/strip-json-comments@0.0.30:
     resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
+    dev: true
+
+  /@vercel/ncc@0.36.1:
+    resolution: {integrity: sha512-S4cL7Taa9yb5qbv+6wLgiKVZ03Qfkc4jGRuiUQMQ8HGBD5pcNRnHeYM33zBvJE4/zJGjJJ8GScB+WmTsn9mORw==}
+    hasBin: true
     dev: true
 
   /accepts@1.3.8:

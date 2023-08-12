@@ -2,9 +2,11 @@
   "name": "htmx",
   "version": "1.0.0",
   "description": "Todo app with htmx. Items stored in server's memory",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "build": "ncc build ./src/index.ts -m",
+    "start": "node ./dist/index.js"
   },
   "keywords": [
     "htmx",
@@ -17,6 +19,7 @@
     "@types/body-parser": "^1.19.2",
     "@types/express": "^4.17.17",
     "@types/node": "^20.4.10",
+    "@vercel/ncc": "^0.36.1",
     "express": "^4.18.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"
