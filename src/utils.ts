@@ -6,3 +6,10 @@ export const makeid = (length: number) => {
   }
   return result;
 };
+
+// https://stackoverflow.com/a/12034334
+export const buildSanitizer = (rules: Record<string, string>) => {
+  return (unsanitized: string) => {
+    return unsanitized.replace(/[&<>"'`=\/]/g, (s) => rules[s]);
+  };
+};

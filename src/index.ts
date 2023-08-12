@@ -1,11 +1,22 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { composeForm, composeTodoList, composeTodoListItem } from "./compose";
-import { makeid } from "./utils";
+import { buildSanitizer, makeid } from "./utils";
 import { Todo } from "./types";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const sanitizer = buildSanitizer({
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+  "/": "&#x2F;",
+  "`": "&#x60;",
+  "=": "&#x3D;",
+});
 
 const todos: Todo[] = [];
 
@@ -32,7 +43,7 @@ app.get("/", (_, res) => {
 app.post("/api/todo", (req, res) => {
   const todo = {
     id: makeid(10),
-    title: req.body.todo,
+    title: sanitizer(req.body.todo),
   };
   todos.push(todo);
   res.send(composeTodoListItem(todo));
