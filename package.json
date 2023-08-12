@@ -1,7 +1,7 @@
 {
   "name": "htmx",
   "version": "1.0.0",
-  "description": "Todo app with htmx. Items stored in server's memory",
+  "description": "Todo app using htmx. Items stored in express server's memory",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
