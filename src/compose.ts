@@ -2,7 +2,7 @@ import { Todo } from "./types";
 
 export const composeForm = () => {
   return `
-    <form hx-post="/api/todo" hx-swap="beforeend" hx-target="#todos">
+    <form hx-post="/api/todo" hx-target="#todos" hx-swap="beforeend">
       <input type="text" name="todo" />
       <button type="submit">Send</button>
     </form>
@@ -15,7 +15,7 @@ export const composeTodoList = (todos: Todo[]) => {
     listItemsHTML += composeTodoListItem(todo);
   }
   return `
-    <ul id="todos" hx-get="/api/todo" hx-trigger="load">
+    <ul id="todos">
       ${listItemsHTML}
     </ul>
   `;
